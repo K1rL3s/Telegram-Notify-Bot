@@ -1,6 +1,6 @@
 # Telegram Notify Bot
 
-##### @everyone for Telegram!
+#### @everyone for Telegram!
 
 ### Client commands:
 - /call -> @everyone notify
