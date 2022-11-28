@@ -9,8 +9,6 @@ from src.consts import (START_MESSAGE, NOT_GROUP_ADMIN, CANNOT_CHANGE_PERMISSION
                         TURN_OFF, CALL_TITLE, CANNOT_CALL_ALL)
 
 
-@error_catcher
-@rules_message(db)
 async def hello(_: Client, message: types.Message):
     await message.reply_text(START_MESSAGE)
 
