@@ -3,6 +3,7 @@ from pyrogram import enums
 from pyrogram.handlers import MessageHandler
 
 from create_bot import db
+from src.database import ListTables
 from src.funcs.funcs import is_admin, delete_messages, generate_call_messages
 from src.funcs.decors import error_catcher, rules_message
 from src.consts import (START_MESSAGE, NOT_GROUP_ADMIN, CANNOT_CHANGE_PERMISSIONS, NOTIFY_PERMISSION_CHANGED, TURN_ON,
@@ -17,7 +18,8 @@ async def hello(_: Client, message: types.Message):
 @error_catcher
 @rules_message(db)
 async def call_perm(client: Client, message: types.Message):
-    if not await is_admin(client, message.chat.id, message.from_user.id):
+    if not (await is_admin(client, message.chat.id, message.from_user.id) or
+            db.is_in_list(message.from_user.id, ListTables.ADMINLIST)):
         return await delete_messages(await message.reply_text(f"{NOT_GROUP_ADMIN}, {CANNOT_CHANGE_PERMISSIONS}"),
                                      message)
 
@@ -31,7 +33,8 @@ async def call_perm(client: Client, message: types.Message):
 @error_catcher
 @rules_message(db)
 async def notify_all(client: Client, message: types.Message):
-    if not (await is_admin(client, message.chat.id, message.from_user.id) or db.get_notify_permission(message.chat.id)):
+    if not (await is_admin(client, message.chat.id, message.from_user.id) or db.get_notify_permission(message.chat.id)
+            or db.is_in_list(message.from_user.id, ListTables.ADMINLIST)):
         return await delete_messages(message, await message.reply_text(f"{NOT_GROUP_ADMIN}, {CANNOT_CALL_ALL}",
                                                                        reply_to_message_id=message.id))
 
