@@ -21,3 +21,5 @@
 3. Change the values in `config.py` and edit "ADMINS" in `src/database.py`
 4. Launch the bot: `python ./main.py`
 
+![Telegram_VaPGhE2fFl](https://user-images.githubusercontent.com/104463209/204350030-ff4b59c5-489c-40dd-a00b-478421dac186.png)
+![tgnotifybot2](https://user-images.githubusercontent.com/104463209/204350055-bdee7e0a-3357-44e9-af15-b3293f53c4d8.png)
