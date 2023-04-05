@@ -14,12 +14,17 @@
 
 ## Launch
 
-1. Install python version **3.7**+ (tested on version **3.10.5**)
-2. Downloads libraries from requirements.txt: \
+1. Install python version **3.10**+ (tested on version **3.10.5**)
+2. Clone repo and change directory:
+```commandline
+git clone https://github.com/K1rL3s/Telegram-Notify-Bot.git
+cd ./Telegram-Notify-Bot
+```
+3. Downloads libraries from requirements.txt: \
    `python -m pip install -r ./requirements` \
    `pip install -r requirements.txt`
-3. Change the values in `config.py` and edit "ADMINS" in `src/database.py`
-4. Launch the bot: `python ./main.py`
+4. Change the values in `config.py` and edit "ADMINS" in `src/database.py`
+5. Launch the bot: `python ./main.py`
 
 ## Examples:
 ![Telegram_VaPGhE2fFl](https://user-images.githubusercontent.com/104463209/204350030-ff4b59c5-489c-40dd-a00b-478421dac186.png)
